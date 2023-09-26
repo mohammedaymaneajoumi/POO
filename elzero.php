@@ -17,6 +17,9 @@
     [->] object operator
     [public, privet, protected] visibility markers
     [$this] psudo variable use Inside the class
+
+    print-r shows object as array
+    var_dump() shows type is it int or string to sure that same type you want as base donner
     */
 
     class appelDevice
@@ -71,9 +74,9 @@
     $iphon7plus->ownerName = "osdddd";
     echo var_dump($iphon7plus);
 
-    echo "<br>";
 
     //F
+    echo "<br>";
     $iphon7plus->setOwnerName();
 
     //
@@ -94,6 +97,14 @@
         public $space;
         public $color;
 
+        private $lock;
+
+        /*Encapsulation access modifiers
+        public the property or method can be accessed from everywhere
+        privet can't change $lock value only insid function changLock($lo)
+        protected Inheritance heretage
+
+        */
 
         /*mehtodes or function in php
         public function functioNmae(){
@@ -107,24 +118,91 @@
             $this->space = $sp;
             $this->color = $co;
         }
-        
+
+        public function changLock($lo){
+            $this->lock = sha1($lo);
+        }
+
     }
     $iphon6plus = new samsungDevice();
 
     //change properties with parametre
     $iphon6plus->changeSpecification("2gb", "5 inch", "32gb", "gold");
+    $iphon6plus->changLock("123456");
 
     //
-    echo var_dump($iphon6plus);
+    echo print_r($iphon6plus);
 
     echo "<br>";
+    echo $iphon6plus->Ram;
+    echo "<br>";
+    echo $iphon6plus->inch;
+    echo "<br>";
+    echo $iphon6plus->space;
+    echo "<br>";
+    echo $iphon6plus->color;
+    echo "<br>";
+    //Fatal error: Uncaught Error: Cannot access private property samsungDevice::$lock in
+    //echo $iphon6plus->lock;
 
+
+    //
     $iphon7plus = new samsungDevice();
     $iphon7plus->changeSpecification("4gb", "5.5 inch", "64gb", "black");
-    echo var_dump($iphon7plus);
+    echo print_r($iphon7plus);
 
+    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
 
+    ?>
 
+    <!--==================ex3======================-->
+    <?php
+    class samsung {
+
+        //properties
+        public $Ram = "16gb";
+        public $inch = "5 inch";
+        public $space = "32gb";
+        public $color = "blue";
+
+        public function changeSpecification($r , $in , $sp , $co)
+        {
+            $this->Ram = $r ;
+            $this->inch = $in;
+            $this->space = $sp;
+            $this->color = $co;
+        }
+
+    }
+    $samsungS = new samsung();
+
+    $samsungS->changeSpecification("2gb", "5 inch", "32gb", "gold");
+
+    echo print_r($samsungS);
+    echo "<br>";
+
+    class sony{
+
+        //properties
+        public $Ram = "16gb";
+        public $inch = "5 inch";
+        public $space = "32gb";
+        public $color = "32gb";
+        public $camera = "25mp";
+
+        public function changeSpecification($r , $in , $sp , $co)
+        {
+            $this->Ram = $r ;
+            $this->inch = $in;
+            $this->space = $sp;
+            $this->color = $co;
+        }
+
+    }
+    $sonyS = new samsung();
+
+    $sonyS->changeSpecification("2gb", "5 inch", "32gb", "gold");
+    echo print_r($sonyS);
     ?>
 </body>
 
