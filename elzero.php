@@ -33,6 +33,10 @@
         public $ownerName;
 
         //constants
+        // it is recommended to name the constants in all uppercase letters.
+        //access a constant from outside the class  const LEAVING_MESSAGE = "Thank you for bying this phone";
+        //can access a constant from inside the class echo self::LEAVING_MESSAGE;
+
         const  chip = 'A9';
         const ownerLastNmae = 10;
 
@@ -195,7 +199,8 @@
             $this->name = $n;
             echo "Welcom To " .$n . " and this phone has ". $this->Ram ." Ram <br>";
         }
-        //The final keyword if you put befor, to prevent class inheritance or to prevent method overriding.
+        //The final keyword to prevent class inheritance or to prevent method overriding.
+        //final public function.. or final class samsung
 
     }
     //declare object
