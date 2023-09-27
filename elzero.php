@@ -102,7 +102,7 @@
         /*Encapsulation access modifiers
         public the property or method can be accessed from everywhere
         privet can't change $lock value only insid function changLock($lo)
-        protected Inheritance heretage
+        protected the method can be accessed within the class and by classes derived from that class
 
         */
 
@@ -164,6 +164,7 @@
         public $inch ;
         public $space ;
         public $color ;
+        public $name ;
 
         public function changeSpecification($r , $in , $sp , $co)
         {
@@ -171,6 +172,11 @@
             $this->inch = $in;
             $this->space = $sp;
             $this->color = $co;
+        }
+        public function sayHello($n)
+        {
+            $this->name = $n;
+            echo "Welcom To " .$n ."<br>";
         }
 
     }
@@ -180,23 +186,42 @@
         //properties same as samsung plus ca,era and sould assing a value
         public $camera = '25mb';
 
-        //method and properties are exetend from samsung
+        //all method and properties are messing, exetend keyword inport from samsung
+        //.
+        //.
+        //Overriding Inherited Method is by redefining the methods (use the same name) in the child class
+        public function sayHello($n)
+        {
+            $this->name = $n;
+            echo "Welcom To " .$n . " and this phone has ". $this->Ram ." Ram <br>";
+        }
+        //The final keyword if you put befor, to prevent class inheritance or to prevent method overriding.
 
     }
-
+    //declare object
     $samsungS = new samsung();
 
+    //apply functions
     $samsungS->changeSpecification("2gb", "5 inch", "32gb", "gold");
+    $samsungS->sayHello("samsung");
 
     echo print_r($samsungS);
     echo "<br>";
 
+    //declare object
     $sonyX = new sony();
 
-    $sonyX->changeSpecification("2gb", "5 inch", "32gb", "gold","25mb");
+    //apply functions
+    $sonyX->changeSpecification("2gb", "5 inch", "32gb", "gold");
+    $sonyX->sayHello("sony");
+    ///you creat a property has anything with any class and only in sonyX object
+    $sonyX->price = '$400';
 
     echo print_r($sonyX);
+    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+
     ?>
+
 </body>
 
 </html>
