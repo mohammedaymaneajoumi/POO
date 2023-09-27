@@ -160,10 +160,10 @@
     class samsung {
 
         //properties
-        public $Ram = "16gb";
-        public $inch = "5 inch";
-        public $space = "32gb";
-        public $color = "blue";
+        public $Ram ;
+        public $inch ;
+        public $space ;
+        public $color ;
 
         public function changeSpecification($r , $in , $sp , $co)
         {
@@ -174,6 +174,16 @@
         }
 
     }
+
+    class sony extends samsung {
+
+        //properties same as samsung plus ca,era and sould assing a value
+        public $camera = '25mb';
+
+        //method and properties are exetend from samsung
+
+    }
+
     $samsungS = new samsung();
 
     $samsungS->changeSpecification("2gb", "5 inch", "32gb", "gold");
@@ -181,28 +191,11 @@
     echo print_r($samsungS);
     echo "<br>";
 
-    class sony{
+    $sonyX = new sony();
 
-        //properties
-        public $Ram = "16gb";
-        public $inch = "5 inch";
-        public $space = "32gb";
-        public $color = "32gb";
-        public $camera = "25mp";
+    $sonyX->changeSpecification("2gb", "5 inch", "32gb", "gold","25mb");
 
-        public function changeSpecification($r , $in , $sp , $co)
-        {
-            $this->Ram = $r ;
-            $this->inch = $in;
-            $this->space = $sp;
-            $this->color = $co;
-        }
-
-    }
-    $sonyS = new samsung();
-
-    $sonyS->changeSpecification("2gb", "5 inch", "32gb", "gold");
-    echo print_r($sonyS);
+    echo print_r($sonyX);
     ?>
 </body>
 
