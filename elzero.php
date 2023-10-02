@@ -255,6 +255,7 @@
     class iphone extends makeDevice{
         public $Owner;
         //must includ us all three functions
+        //if abstract fu public you can use only public if privet you can use all three if protected you can use protected and private
         public function testPerformance(){
             echo 'performance is Good 100%';
         }
@@ -276,19 +277,126 @@
             echo 'owner is verified';
         }
         public function sayWelckom($X){
-            
+
         }
     }
     $Promax = new iphone();
     $Promax->sayWelckom('ossama');
     echo '<br>';
     echo print_r($Promax);
+    echo '<br>';
 
     $ipadAir = new ipad();
     echo print_r($ipadAir);
-    
+
     echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
     ?>
+
+
+    <?php
+        /*
+        Magic Methods - Construct, Destruct
+        Magic Methods - call????
+        Magic Methods - get, set???????
+        Magic Methods - clone????
+
+        __Construct excuted start when you creat you object
+
+        __Destruct called when object is destroyed
+        methiods like delet file or make disconnect from database
+
+        */
+        class mi {
+            public $name;
+
+            //there is no function name
+            //when i creat object happens what insid that function wihtout executed under
+            //CALL IT INSID OBJECT BECAUSE THERE IS NO FUNCTION NAME
+            public function __construct($n){
+                $this->name = $n;
+                echo 'function is created <br>';
+                echo 'hello' . $n . '<br>';
+            }
+        }
+        $tablte = new mi('Oussama');
+        print_r($tablte);
+
+        echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    ?>
+
+    <?php
+    /*
+    Interfaces Polymorphism 
+    When one or more classes use the same interface,
+    have methods without body code
+    Interfaces allow you to specify what methods a class should excut.
+
+    */
+    interface DBconnect{
+        public function getUsers();
+        public function getArticales();
+        public function showStatus();
+
+    }
+
+    class MySQL implements DBconnect{
+        public $name;
+
+            public function getUsers() {
+            echo 'SELECT * FROM users';
+        }
+
+        public function getArticales() {
+            echo 'SELECT * FROM articles';
+        }
+
+        public function showStatus() {
+            echo 'SELECT * FROM status';
+        }
+    }
+    
+    class oracle implements DBconnect{
+        public $name;
+
+        public function getUsers() {
+            echo 'GET FROM Users';
+        }
+
+        public function getArticales() {
+            echo 'GET FROM articles';
+        }
+
+        public function showStatus() {
+            echo 'GET FROM Status';
+        }
+    }
+
+    $row = new MySQL();
+    $row->getUsers();
+    $row->getArticales();
+    $row->showStatus();
+    print_r($row);
+    echo '<br>';
+
+    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    ?>
+
+
+
+
+    <?php
+    /*
+    Static Properties and Methods
+
+    Static Method
+    Static methods can be called directly - without creating an instance of the class first.
+
+    */
+
+
+    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    ?>
+
 </body>
 
 </html>
