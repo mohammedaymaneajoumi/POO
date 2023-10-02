@@ -227,6 +227,68 @@
 
     ?>
 
+
+    <!--==================ex4======================-->
+    <?php
+    /*
+    Classe Abstraction
+    cannot creat object from
+    made for other classes to inhert prop and methods from
+    class to register new user, method each user say hi to him and other method ckek if password is correct..
+
+    can hav abstract method and non abstract method
+    */
+
+    abstract class makeDevice {
+        public $lastName;
+        public function sayHi() {
+            echo 'say hi';
+        }
+
+        //abstract function can't have body
+        //and made to force you to use it*
+        abstract public function testPerformance();
+        abstract public function verifyOwner();
+        abstract public function sayWelckom($n);
+
+    }
+    class iphone extends makeDevice{
+        public $Owner;
+        //must includ us all three functions
+        public function testPerformance(){
+            echo 'performance is Good 100%';
+        }
+        public function verifyOwner(){
+            echo 'owner is verified';
+        }
+        public function sayWelckom($s){
+            $this->Owner = $s;
+            echo 'welcome '. $s;
+        }
+    }
+    class ipad extends makeDevice{
+        public $Owner;
+        //must includ all three functions
+        public function testPerformance(){
+            echo 'performance is Good 100%';
+        }
+        public function verifyOwner(){
+            echo 'owner is verified';
+        }
+        public function sayWelckom($X){
+            
+        }
+    }
+    $Promax = new iphone();
+    $Promax->sayWelckom('ossama');
+    echo '<br>';
+    echo print_r($Promax);
+
+    $ipadAir = new ipad();
+    echo print_r($ipadAir);
+    
+    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    ?>
 </body>
 
 </html>
