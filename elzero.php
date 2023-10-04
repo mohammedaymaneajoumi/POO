@@ -354,7 +354,7 @@
             echo 'SELECT * FROM status';
         }
     }
-    
+
     class oracle implements DBconnect{
         public $name;
 
@@ -383,6 +383,41 @@
 
 
 
+    <?php
+    /*
+    Traits
+    PHP only supports single inheritance: a child class can inherit only from one single parent.
+    Traits are used to declare methods that can be used in multiple classes
+    and the methods can have any access modifier (public, private, or protected).
+
+    cannot extend  or implement 
+    cannot instantiate
+    can have methods
+    have property over class
+
+    */
+    class LG {
+        public $feature1;
+        public $feature2;
+    }
+    class nokia {
+        public $feature3;
+        public $feature4;
+    }
+    class infinix {
+        public $feature5;
+        public $feature6;
+    }
+
+    class newPhone extends nokia{
+
+    }
+
+    $thisphone = new newPhone();
+    print_r($thisphone);
+    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    ?>
+
 
     <?php
     /*
@@ -394,7 +429,7 @@
     */
 
 
-    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    echo "<br>";echo "<br>";echo "<br>";echo "<br>";
     ?>
 
 </body>
