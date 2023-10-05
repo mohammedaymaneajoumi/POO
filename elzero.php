@@ -50,14 +50,14 @@
             //psudo is fake if the propertie not exist this not exist ether
             echo 'this iphone Ram Is: ' . $this->Ram . '<br>';
         }
-        public function setOwnerName(){
-            if(strlen($this->ownerName) > 3){
+        public function setOwnerName()
+        {
+            if (strlen($this->ownerName) > 3) {
                 echo "Owner Name Can Not Depass 3 Chars";
-            }else{
+            } else {
                 echo "Your Name Has Been Set";
             }
         }
-
     }
     //Objects are created using the new keyword.
     $iphon6plus = new appelDevice();
@@ -86,7 +86,11 @@
     //
     echo "<br>";
     echo appelDevice::ownerLastNmae;
-    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
 
     ?>
 
@@ -114,19 +118,19 @@
         public function functioNmae(){
         }
         */
-        public function changeSpecification($r , $in , $sp , $co)
+        public function changeSpecification($r, $in, $sp, $co)
         {
             //psudo is fake if the propertie not exist this not exist ether
-            $this->Ram = $r ;
+            $this->Ram = $r;
             $this->inch = $in;
             $this->space = $sp;
             $this->color = $co;
         }
 
-        public function changLock($lo){
+        public function changLock($lo)
+        {
             $this->lock = sha1($lo);
         }
-
     }
     $iphon6plus = new samsungDevice();
 
@@ -155,24 +159,29 @@
     $iphon7plus->changeSpecification("4gb", "5.5 inch", "64gb", "black");
     echo print_r($iphon7plus);
 
-    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
 
     ?>
 
     <!--==================ex3======================-->
     <?php
-    class samsung {
+    class samsung
+    {
 
         //properties
-        public $Ram ;
-        public $inch ;
-        public $space ;
-        public $color ;
-        public $name ;
+        public $Ram;
+        public $inch;
+        public $space;
+        public $color;
+        public $name;
 
-        public function changeSpecification($r , $in , $sp , $co)
+        public function changeSpecification($r, $in, $sp, $co)
         {
-            $this->Ram = $r ;
+            $this->Ram = $r;
             $this->inch = $in;
             $this->space = $sp;
             $this->color = $co;
@@ -180,12 +189,12 @@
         public function sayHello($n)
         {
             $this->name = $n;
-            echo "Welcom To " .$n ."<br>";
+            echo "Welcom To " . $n . "<br>";
         }
-
     }
 
-    class sony extends samsung {
+    class sony extends samsung
+    {
 
         //properties same as samsung plus ca,era and sould assing a value
         public $camera = '25mb';
@@ -197,7 +206,7 @@
         public function sayHello($n)
         {
             $this->name = $n;
-            echo "Welcom To " .$n . " and this phone has ". $this->Ram ." Ram <br>";
+            echo "Welcom To " . $n . " and this phone has " . $this->Ram . " Ram <br>";
         }
         //The final keyword to prevent class inheritance or to prevent method overriding.
         //final public function.. or final class samsung
@@ -223,7 +232,11 @@
     $sonyX->price = '$400';
 
     echo print_r($sonyX);
-    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
 
     ?>
 
@@ -239,9 +252,11 @@
     can hav abstract method and non abstract method
     */
 
-    abstract class makeDevice {
+    abstract class makeDevice
+    {
         public $lastName;
-        public function sayHi() {
+        public function sayHi()
+        {
             echo 'say hi';
         }
 
@@ -250,34 +265,40 @@
         abstract public function testPerformance();
         abstract public function verifyOwner();
         abstract public function sayWelckom($n);
-
     }
-    class iphone extends makeDevice{
+    class iphone extends makeDevice
+    {
         public $Owner;
         //must includ all three functions
         //if abstract fu public you can use only public if privet you can use all three if protected you can use protected and private
-        public function testPerformance(){
+        public function testPerformance()
+        {
             echo 'performance is Good 100%';
         }
-        public function verifyOwner(){
+        public function verifyOwner()
+        {
             echo 'owner is verified';
         }
-        public function sayWelckom($s){
+        public function sayWelckom($s)
+        {
             $this->Owner = $s;
-            echo 'welcome '. $s;
+            echo 'welcome ' . $s;
         }
     }
-    class ipad extends makeDevice{
+    class ipad extends makeDevice
+    {
         public $Owner;
         //must includ all three functions
-        public function testPerformance(){
+        public function testPerformance()
+        {
             echo 'performance is Good 100%';
         }
-        public function verifyOwner(){
+        public function verifyOwner()
+        {
             echo 'owner is verified';
         }
-        public function sayWelckom($X){
-
+        public function sayWelckom($X)
+        {
         }
     }
     $Promax = new iphone();
@@ -289,12 +310,16 @@
     $ipadAir = new ipad();
     echo print_r($ipadAir);
 
-    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
     ?>
 
 
     <?php
-        /*
+    /*
         Magic Methods - Construct, Destruct
         Magic Methods - call????
         Magic Methods - get, set???????
@@ -306,22 +331,28 @@
         methiods like delet file or make disconnect from database
 
         */
-        class mi {
-            public $name;
+    class mi
+    {
+        public $name;
 
-            //there is no function name
-            //when i creat object happens what insid that function wihtout executed under
-            //CALL IT INSID OBJECT BECAUSE THERE IS NO FUNCTION NAME
-            public function __construct($n){
-                $this->name = $n;
-                echo 'function is created <br>';
-                echo 'hello' . $n . '<br>';
-            }
+        //there is no function name
+        //when i creat object happens what insid that function wihtout executed under
+        //CALL IT INSID OBJECT BECAUSE THERE IS NO FUNCTION NAME
+        public function __construct($n)
+        {
+            $this->name = $n;
+            echo 'function is created <br>';
+            echo 'hello' . $n . '<br>';
         }
-        $tablte = new mi('Oussama');
-        print_r($tablte);
+    }
+    $tablte = new mi('Oussama');
+    print_r($tablte);
 
-        echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
     ?>
 
     <?php
@@ -338,41 +369,49 @@
     Interfaces allow you to specify what methods a class should excut.
 
     */
-    interface DBconnect{
+    interface DBconnect
+    {
         public function getUsers();
         public function getArticales();
         public function showStatus();
-
     }
 
-    class MySQL implements DBconnect{
+    class MySQL implements DBconnect
+    {
         public $name;
 
-            public function getUsers() {
+        public function getUsers()
+        {
             echo 'SELECT * FROM users';
         }
 
-        public function getArticales() {
+        public function getArticales()
+        {
             echo 'SELECT * FROM articles';
         }
 
-        public function showStatus() {
+        public function showStatus()
+        {
             echo 'SELECT * FROM status';
         }
     }
 
-    class oracle implements DBconnect{
+    class oracle implements DBconnect
+    {
         public $name;
 
-        public function getUsers() {
+        public function getUsers()
+        {
             echo 'GET FROM Users';
         }
 
-        public function getArticales() {
+        public function getArticales()
+        {
             echo 'GET FROM articles';
         }
 
-        public function showStatus() {
+        public function showStatus()
+        {
             echo 'GET FROM Status';
         }
     }
@@ -384,7 +423,11 @@
     print_r($row);
     echo '<br>';
 
-    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
     ?>
 
 
@@ -402,71 +445,81 @@
     have property over class
 
     */
-    class LG {
+    class LG
+    {
         public $feature1;
         public $feature2;
     }
-    class nokia {
+    class nokia
+    {
         public $feature3;
         public $feature4;
     }
-    class infinix {
+    class infinix
+    {
         public $feature5;
         public $feature6;
     }
 
-    class newPhone extends nokia{
-
+    class newPhone extends nokia
+    {
     }
 
 
     $thisphone = new newPhone();
     print_r($thisphone);
-    echo '<br>';echo '<br>';
+    echo '<br>';
+    echo '<br>';
 
 
     ///////////////////////////////
-    trait fingerPrint {
-        public function fingerFeatur(){
+    trait fingerPrint
+    {
+        public function fingerFeatur()
+        {
             echo 'have fingerprint';
         }
     }
 
-    trait threeDTouch {
-        public function threeD(){
+    trait threeDTouch
+    {
+        public function threeD()
+        {
             echo ' have three dimension touch';
         }
     }
 
-    trait faceDetect {
-        public function faceFeature(){
+    trait faceDetect
+    {
+        public function faceFeature()
+        {
             echo ' detect face';
         }
     }
 
-    class ipadPro{
+    class ipadPro
+    {
         use fingerPrint;
         use threeDTouch;
         use faceDetect;
 
-        function sayBy(){
+        function sayBy()
+        {
             echo ' say by';
         }
-
     }
 
-    class ipadAir{
+    class ipadAir
+    {
         //hase only face detect
         use faceDetect;
-
-
     }
-    class ipadX{
-
+    class ipadX
+    {
     }
 
     $ipadPro = new ipadPro;
-    print_r($ipadPro); 
+    print_r($ipadPro);
     $ipadPro->fingerFeatur();
     $ipadPro->threeD();
     $ipadPro->faceFeature();
@@ -481,7 +534,11 @@
     $ipadX = new ipadX;
     print_r($ipadX);
 
-    echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
     ?>
 
 
@@ -500,33 +557,40 @@
 
     //A class can have both static and non-static methods. 
     //A static method can be accessed from a method in the same class using the self keyword and double colon (::)
-    class greeting {
-    public static function welcome() {
-        echo "Hello World!";
-    }
+    class greeting
+    {
+        public static function welcome()
+        {
+            echo "Hello World!";
+        }
 
-    public function __construct() {
-        self::welcome();
-    }
+        public function __construct()
+        {
+            self::welcome();
+        }
     }
 
     new greeting();
 
     //Static methods can also be called from methods in other classes. To do this, the static method should be public
-    class A {
-    public static function welcome() {
-        echo "Hello World!";
-    }
+    class A
+    {
+        public static function welcome()
+        {
+            echo "Hello World!";
+        }
     }
 
-    class B {
-    public function message() {
-        A::welcome();
-    }
+    class B
+    {
+        public function message()
+        {
+            A::welcome();
+        }
     }
 
     $obj = new B();
-    echo $obj -> message();
+    echo $obj->message();
 
 
     /*
@@ -555,9 +619,31 @@
     echo $ci->staticValue();
     echo '<br>';
 
-    echo "<br>";echo "<br>";echo "<br>";echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
     ?>
 
+    <?php
+    /*
+    Namespace (space)
+    They allow for better organization by grouping classes that work together to perform a task
+
+    They allow the same name to be used for more than one class
+
+    it is possible to have nested namespaces
+    <?php namespace Code\Html; ?>
+
+    */
+    require 'Htmlsapce.php';
+
+    //namespace\classname in requires files
+    $jssapce = new html\Htmlsapce();
+    print_r($jssapce);
+    $jssapce->sayhaallo();
+
+    ?>
 </body>
 
 </html>
