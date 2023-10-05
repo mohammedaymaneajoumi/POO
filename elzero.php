@@ -254,7 +254,7 @@
     }
     class iphone extends makeDevice{
         public $Owner;
-        //must includ us all three functions
+        //must includ all three functions
         //if abstract fu public you can use only public if privet you can use all three if protected you can use protected and private
         public function testPerformance(){
             echo 'performance is Good 100%';
@@ -327,6 +327,12 @@
     <?php
     /*
     Interfaces Polymorphism 
+
+    Interface are similar to abstract classes(made for other classes to inhert prop and methods from)
+    Interfaces cannot have properties, while abstract classes can
+    All interface methods must be public, while abstract class methods is public or protected
+    All methods in an interface are abstract, so they cannot be implemented in code and the abstract keyword is not necessary
+
     When one or more classes use the same interface,
     have methods without body code
     Interfaces allow you to specify what methods a class should excut.
@@ -413,8 +419,68 @@
 
     }
 
+
     $thisphone = new newPhone();
     print_r($thisphone);
+    echo '<br>';echo '<br>';
+
+
+    ///////////////////////////////
+    trait fingerPrint {
+        public function fingerFeatur(){
+            echo 'have fingerprint';
+        }
+    }
+
+    trait threeDTouch {
+        public function threeD(){
+            echo ' have three dimension touch';
+        }
+    }
+
+    trait faceDetect {
+        public function faceFeature(){
+            echo ' detect face';
+        }
+    }
+
+    class ipadPro{
+        use fingerPrint;
+        use threeDTouch;
+        use faceDetect;
+
+        function sayBy(){
+            echo ' say by';
+        }
+
+    }
+
+    class ipadAir{
+        //hase only face detect
+        use faceDetect;
+
+
+    }
+    class ipadX{
+
+    }
+
+    $ipadPro = new ipadPro;
+    print_r($ipadPro); 
+    $ipadPro->fingerFeatur();
+    $ipadPro->threeD();
+    $ipadPro->faceFeature();
+    $ipadPro->sayBy();
+    echo "<br>";
+
+    $ipadAir = new ipadAir;
+    print_r($ipadAir);
+    $ipadAir->faceFeature();
+    echo "<br>";
+
+    $ipadX = new ipadX;
+    print_r($ipadX);
+
     echo "<br>";echo "<br>";echo "<br>";echo "<br>";echo "<br>";
     ?>
 
@@ -423,11 +489,71 @@
     /*
     Static Properties and Methods
 
+    Static Properties and Methods used to acces properties / methods in evrywere
+    Declaring class Properties or Methods as Static Makes Them Accessible Without Needing an Instantiation of the Class.
+
     Static Method
-    Static methods can be called directly - without creating an instance of the class first.
+    To access a static method use the class name ,, double colon (::) ,, and the method name:
+    the Pseudo-Variable $this is not Available Inside the Method Declared as Static. cause this return on object you creat and there is no object
 
     */
 
+    //A class can have both static and non-static methods. 
+    //A static method can be accessed from a method in the same class using the self keyword and double colon (::)
+    class greeting {
+    public static function welcome() {
+        echo "Hello World!";
+    }
+
+    public function __construct() {
+        self::welcome();
+    }
+    }
+
+    new greeting();
+
+    //Static methods can also be called from methods in other classes. To do this, the static method should be public
+    class A {
+    public static function welcome() {
+        echo "Hello World!";
+    }
+    }
+
+    class B {
+    public function message() {
+        A::welcome();
+    }
+    }
+
+    $obj = new B();
+    echo $obj -> message();
+
+
+    /*
+    
+    */
+    //To access a static property use the class name, double colon (::), and the property name:
+    class pi
+    {
+        public static $value = 3.14159;
+    }
+
+    // Get static property
+    echo pi::$value;
+
+    //A static property can be accessed from a method in the same class using the self keyword and double colon (::):
+    class ci
+    {
+        public static $value = 3.14159;
+        public function staticValue()
+        {
+            return self::$value;
+        }
+    }
+
+    $ci = new ci();
+    echo $ci->staticValue();
+    echo '<br>';
 
     echo "<br>";echo "<br>";echo "<br>";echo "<br>";
     ?>
