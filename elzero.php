@@ -20,6 +20,11 @@
 
     print-r shows object as array
     var_dump() shows type is it int or string to sure that same type you want as base donner
+
+    poo is program en utilisation 4mecanism  and you can ignore
+    class definie pro and method
+    objct is type de donner a mehtodes or function
+
     */
 
     class appelDevice
@@ -60,6 +65,7 @@
         }
     }
     //Objects are created using the new keyword.
+    //objct is type de donner a mehtodes or function
     $iphon6plus = new appelDevice();
 
     //change properties
@@ -245,11 +251,14 @@
     <?php
     /*
     Classe Abstraction
+    Abstract classes and methods are when the parent class has a named method, but need its child class(es) to fill out the tasks.
+    An abstract method is a method that is declared, but not implemented in the code.
     cannot creat object from
     made for other classes to inhert prop and methods from
-    class to register new user, method each user say hi to him and other method ckek if password is correct..
-
     can hav abstract method and non abstract method
+
+    ex:class to register new user, method es say hi to user and others ckek if password is correct..
+
     */
 
     abstract class makeDevice
@@ -270,7 +279,7 @@
     {
         public $Owner;
         //must includ all three functions
-        //if abstract fu public you can use only public if privet you can use all three if protected you can use protected and private
+        //if abstract fu public you can use only public if protected you can use protected and publi if privet you can use all three c
         public function testPerformance()
         {
             echo 'performance is Good 100%';
@@ -328,7 +337,7 @@
         __Construct excuted start when you creat you object
 
         __Destruct called when object is destroyed
-        methiods like delet file or make disconnect from database
+        methods like delet file or make disconnect from database
 
         */
     class mi
@@ -358,15 +367,15 @@
     <?php
     /*
     Interfaces Polymorphism 
+    When one or more classes use the same interface, it is referred to as "polymorphism".
+    Interfaces make it easy to use a variety of different classes in the same way. 
 
     Interface are similar to abstract classes(made for other classes to inhert prop and methods from)
     Interfaces cannot have properties, while abstract classes can
     All interface methods must be public, while abstract class methods is public or protected
     All methods in an interface are abstract, so they cannot be implemented in code and the abstract keyword is not necessary
 
-    When one or more classes use the same interface,
     have methods without body code
-    Interfaces allow you to specify what methods a class should excut.
 
     */
     interface DBconnect
@@ -439,7 +448,7 @@
     Traits are used to declare methods that can be used in multiple classes
     and the methods can have any access modifier (public, private, or protected).
 
-    cannot extend  or implement 
+    cannot extend  or implement
     cannot instantiate
     can have methods
     have property over class
@@ -628,16 +637,21 @@
     <?php
     /*
     Namespace (space)
-    They allow for better organization by grouping classes that work together to perform a task
-
-    They allow the same name to be used for more than one class
+    They allow the same name to be used for more than one class in different namespaces
 
     it is possible to have nested namespaces
     <?php namespace Code\Html; ?>
 
+    When many classes from the same namespace are being used at the same time, it is easier to use the namespace keyword:
+
+    It can be useful to give a namespace or class an alias to make it easier to write. This is done with the use keyword:
+    <?php use Html as H; $table = new H\Table();?>
+    <?php use Html\Table as T; $table = new T(); ?>
+
     */
     require 'Htmlsapce.php';
 
+    //classes that belong to the namespace can be instantiated without any qualifiers.
     //namespace\classname in requires files
     $jssapce = new html\Htmlsapce();
     print_r($jssapce);
