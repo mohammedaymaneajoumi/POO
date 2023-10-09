@@ -4,7 +4,7 @@ namespace html;
 
 class Htmlsapce
 {
-    public $techNmae;
+    public $s;
 
     public function sayhaallo()
     {

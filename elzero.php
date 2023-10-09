@@ -651,7 +651,8 @@
     */
     require 'Htmlsapce.php';
 
-    //classes that belong to the namespace can be instantiated without any qualifiers.
+    //Any code that follows a namespace declaration is operating inside the namespace, so classes that belong to the namespace can be instantiated without any qualifiers.
+    // To access classes from outside a namespace, the class needs to have the namespace attached to it.
     //namespace\classname in requires files
     $jssapce = new html\Htmlsapce();
     print_r($jssapce);
